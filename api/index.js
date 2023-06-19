@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URL).then((e)=>{
     console.log("error while connecting to database: ",err);
 })
 
-console.log("module will be: ",module)
+// console.log("module will be: ",module)
 
 app.use(express.json());
 
