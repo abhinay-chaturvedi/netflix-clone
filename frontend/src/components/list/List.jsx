@@ -4,7 +4,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './list.scss'
 
-const List = () => {
+const List = ({ list }) => {
     const listRef = useRef();
     const [slideNumber, setSlideNumber]= useState(0);
     const handleClickArrow = (type)=>{
@@ -27,16 +27,11 @@ const List = () => {
             <ArrowBackIosIcon className='sliderArrow left' onClick= {()=>handleClickArrow("left")}/>
             <div className="listContainer" ref={listRef}>
             <ListItem index={0}/>
-            <ListItem index={1}/>
-            <ListItem index={2}/>
-            <ListItem index={3}/>
-            <ListItem index={4}/>
-            <ListItem index={5}/>
-            <ListItem index={6}/>
-            <ListItem index={7}/>
-            <ListItem index={8}/>
-            <ListItem index={9}/>
-            <ListItem index={10}/>
+           {
+            list.content.map((item, i) => {
+                return <ListItem index={i} item = {item}/>
+            })
+           }
             </div>
            <ArrowForwardIosIcon className='sliderArrow right' onClick= {()=>handleClickArrow("right")}/>
         </div>
